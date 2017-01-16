@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Collections;
+
+public class Solution {
+
+    void function()
+        {
+        Scanner scan=new Scanner(System.in);
+       
+        int n=scan.nextInt();
+        
+        Integer sum[]=new Integer[n+1];
+        Integer demo[]=new Integer[n+1];
+        
+        for(int i=0;i<=n;i++)
+            sum[i]=0;
+  
+        for(int i=1;i<=n;i++)
+        {
+            int arrival=scan.nextInt();
+            int execution=scan.nextInt();
+            sum[i]=arrival+execution;
+            demo[i]=sum[i];
+    }  
+    
+    
+      Arrays.sort(sum);
+        
+        for(int j=1;j<=n;j++)
+            {
+		int z=Arrays.asList(demo).indexOf(sum[j]);
+                System.out.print(Arrays.asList(demo).indexOf(sum[j])+" ");
+		demo[z]=0;
+        }
+
+        
+    }
+    public static void main(String[] args) {
+        Solution sol=new Solution();
+        sol.function();
+    }
+}

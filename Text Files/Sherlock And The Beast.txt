@@ -1,0 +1,45 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int t,i,target,threes,fives; 
+    
+    scanf("%d",&t);
+    for(int a0 = 0; a0 < t; a0++)
+    {   
+        fives=0;
+        threes=0;
+        int n; 
+        scanf("%d",&n);
+        target=n;
+        while(n>0)
+            {
+            if(n%3==0)
+                {
+                fives=n;
+                break;
+            }
+            n-=5;
+        }
+        threes=target-n;
+        if(n<0||threes%5!=0)
+            {
+            printf("-1\n");
+        }
+        else
+            {
+                for(i=0; i<fives; i++)
+                    printf("5");
+                for(i=0; i<threes; i++)
+                    printf("3");
+            printf("\n");
+                }
+        }
+   
+    return 0;
+}

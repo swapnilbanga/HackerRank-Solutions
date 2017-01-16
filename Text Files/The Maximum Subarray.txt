@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int largest,i,j,k,n,t,smallest;
+     int max_end_here;
+    int max_so_far;
+    
+    scanf("%d",&t);
+    for(int c=0; c<t; c++)
+        {
+        scanf("%d",&n);
+        signed int arr[n];
+        for(i=0; i<n; i++)
+            scanf("%d ",&arr[i]);
+         max_end_here=0;
+        max_so_far=0;
+        for(i=0;i<n;i++)
+        {
+           if(arr[i]>max_end_here+arr[i])
+                max_end_here=arr[i];
+            else
+                max_end_here=max_end_here+arr[i];
+       
+            if(max_so_far<max_end_here)
+                max_so_far=max_end_here;
+        }
+      
+        largest=0;
+        for(i=0; i<n; i++)
+            {
+            if(arr[i]>0)
+                largest=largest+arr[i];
+        }
+        if(largest==0)
+            {
+            largest=arr[0];
+            for(i=1; i<n; i++)
+                if(arr[i]>largest)
+                largest=arr[i];
+         printf("%d %d",largest,largest); 
+        }
+        else
+           printf("%d %d",max_so_far,largest);
+
+        printf("\n");
+    }
+    return 0;
+}

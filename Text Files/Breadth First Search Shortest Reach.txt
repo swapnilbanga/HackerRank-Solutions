@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+   int cases,edges,nodes,i,j,c,e1,e2,start,current,front,rear;
+   scanf("%d",&cases);
+   int mat[1000][1000];
+   int par[1000];  
+   int dist[1000];
+    int queue[1000];
+    for(int k=0; k<cases; k++)
+        {
+        scanf("%d %d",&nodes,&edges);
+       for(i=1; i<=nodes; i++)
+               {
+               for(j=1;j<=nodes;j++)
+               {
+                 mat[i][j]=-1;
+           }
+          }
+       for(i=1;i<nodes;i++)
+           {
+           par[i]=-2;
+       }
+       for(c=0; c<edges; c++)
+               {
+               scanf("%d %d",&e1,&e2);
+               mat[e1][e2]=6;
+               par[e2]=e1;
+           }
+        
+        scanf("%d",&start);
+        
+        for(i=1; i<=nodes; i++)
+           {
+           dist[i]=1000;
+       }
+        dist[start]=0;
+        front=0;
+        rear=0;
+        queue[0]=start;
+        
+        while(front<=rear)
+            {
+            current=queue[front];
+            for(j=1; j<=nodes; j++)
+                {
+                if(mat[current][j]==6||mat[j][current]==6)
+                    {
+                    if(dist[j]>dist[current]+6)
+                        {
+                        dist[j]=dist[current]+6;
+                        par[j]=current;
+                        rear=rear+1;
+                        queue[rear]=j;
+                        
+                    }
+                }
+            }
+             front=front+1;
+        }
+         for(i=1; i<=nodes; i++)
+             {
+             if(dist[i]==1000)
+             dist[i]=-1;
+             if(i!=start)
+            printf("%d ",dist[i]);
+         }
+        printf("\n");
+    }
+    return 0;
+}
+  
+
+

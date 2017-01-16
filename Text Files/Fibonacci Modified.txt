@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+    
+    public void function()
+    {
+    int a,b,i,n;
+    BigInteger[] arr=new BigInteger[21];
+    Scanner scan=new Scanner(System.in);
+    a=scan.nextInt();
+    b=scan.nextInt();
+    n=scan.nextInt();    
+    arr[0]=BigInteger.valueOf(a);
+    arr[1]=BigInteger.valueOf(b);
+    i=2;
+    while(i<=n)
+        {
+        BigInteger x=arr[i-1];
+        BigInteger y=arr[i-2];
+        arr[i]=(x.multiply(x)).add(y);
+        i++;
+    }
+    System.out.println(arr[n-1]);
+    }    
+    public static void main(String[] args) {
+    Solution obj=new Solution();
+        obj.function();
+}
+    }

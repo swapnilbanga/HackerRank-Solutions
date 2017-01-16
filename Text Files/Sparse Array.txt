@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    Scanner scan;
+    int n;
+    int q;
+    String arr[];
+    
+    void function()
+        {
+        int flag;
+        Scanner scan=new Scanner(System.in);
+        n=scan.nextInt();
+        String arr[]=new String[n];
+        for(int i=0 ;i<n; i++)
+            arr[i]=scan.next();
+        q=scan.nextInt();
+        
+        for(int i=0; i<q; i++)
+            {
+            flag=0;
+            String query=scan.next();
+            for(int j=0 ;j<n; j++)
+                {
+                if(query.equals(arr[j]))
+                    flag++;
+            }
+            System.out.println(flag);
+        }
+                
+        
+    }
+
+    public static void main(String[] args) {
+        Solution sol=new Solution();
+        sol.function();
+       
+    }
+}

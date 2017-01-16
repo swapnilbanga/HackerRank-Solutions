@@ -1,0 +1,29 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <climits>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N, K, i, max, min;
+    cin >> N >> K;
+    long long list[N];
+    for (i=0; i<N; i++)
+        cin >> list[i];
+    vector <int> b(list,list+N); //initialised b using elements of a. 
+    sort(list,list+i);
+    sort(b.begin(),b.end());
+    long long unfairness=100000000;
+    for(i=0;i<(N-K)+1;i++)
+        {
+        min=list[i];
+        max=list[i+K-1];
+    if(unfairness>max-min)
+        unfairness=max-min;
+    }
+    cout<<unfairness;
+    return 0;
+}
